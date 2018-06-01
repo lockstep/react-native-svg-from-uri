@@ -42,7 +42,7 @@ const ACCEPTED_SVG_ELEMENTS = [
 ];
 
 // Attributes from SVG elements that are mapped directly.
-const SVG_ATTS = ["viewBox", "width", "height"];
+const SVG_ATTS = ["viewBox", "width", "height", "preserveAspectRatio"];
 const G_ATTS = ["id", "fill", "textAnchor", "fontFamily"];
 
 const CIRCLE_ATTS = ["cx", "cy", "r"];
