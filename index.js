@@ -42,7 +42,7 @@ const ACCEPTED_SVG_ELEMENTS = [
 ];
 
 // Attributes from SVG elements that are mapped directly.
-const SVG_ATTS = ["viewBox", "width", "height", "preserveAspectRatio"];
+const SVG_ATTS = ["viewBox", "width", "height"];
 const G_ATTS = ["id", "fill", "textAnchor", "fontFamily"];
 
 const CIRCLE_ATTS = ["cx", "cy", "r"];
@@ -54,7 +54,7 @@ const RADIALG_ATTS = CIRCLE_ATTS.concat(["id", "gradientUnits"]);
 const STOP_ATTS = ["offset", "stopOpacity", "stopColor"];
 const ELLIPSE_ATTS = ["cx", "cy", "rx", "ry"];
 
-const TEXT_ATTS = ["fontFamily", "fontSize", "fontWeight"];
+const TEXT_ATTS = ["fontFamily", "fontSize", "fontWeight", "transform"];
 
 const POLYGON_ATTS = ["points"];
 const POLYLINE_ATTS = ["points"];
@@ -366,6 +366,7 @@ class SvgUri extends Component {
       const doc = new xmldom.DOMParser().parseFromString(inputSVG);
 
       const rootSVG = this.inspectNode(doc.childNodes[0]);
+      this.trimElementChilden(rootSVG.props.children)
 
       return <View style={this.props.style}>{rootSVG}</View>;
     } catch (e) {
